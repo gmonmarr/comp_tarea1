@@ -62,19 +62,13 @@ int main(){
     assert(s.peek() == 2);
     assert(s.isEmpty() == false);
 
-    s.push(3);
-    s.push(4);
-    s.push(5);
-    s.push(6);
-    s.push(7);
-    s.push(8);
-    s.push(9);
-    s.push(10);
-    s.push(11); // deberíamos tener un mensaje de stack overflow (comprobar a mano)
+    for(int i = 3; i <= 11; i++){ // agregar 3 a 11
+        s.push(i); // en el 11vo debería imprimir stack overflow
+    }
 
     // borrar 10 elementos (todo el stack)
     for (int i = 0; i < 10; i++){
-        cout << "Valor: " << s.pop() << " eliminado" << endl;
+        assert(10 - i == s.pop()); // debería regresar 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
     }
 
     assert(s.isEmpty() == true);
